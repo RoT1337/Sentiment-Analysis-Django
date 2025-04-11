@@ -1,0 +1,32 @@
+<div [formGroup]="textForm">
+    <form (submit)="onSubmit($event)">
+        <h2>Input Sentence:</h2>
+        <textarea rows="4" cols="50" formControlName="textInput"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div class="output" *ngIf="sentence">
+    <h2>Analysis Result:</h2>
+
+    <h3>Text:</h3>
+    <p>{{ result.Successful.Text.text }}</p>
+
+    <h3>Sentiment Scores:</h3>
+    <p>Negative: {{ result.Successful['Sentiment Scores'].neg }}</p>
+    <p>Neutral: {{ result.Successful['Sentiment Scores'].neu }}</p>
+    <p>Positive: {{ result.Successful['Sentiment Scores'].pos }}</p>
+
+    <h3>Overall Sentiment:</h3>
+    <p>{{ result.Successful.Sentiment }}</p>
+
+    <h3>Compound Score:</h3>
+    <p>{{ result.Successful['Text_Compound'] }}</p>
+</div>
+
+<!--
+Sentences that doesn't work?
+
+"The customer service was incredibly slow and unhelpful."
+"The food at the restaurant was cold and tasteless."
+-->
